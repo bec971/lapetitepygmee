@@ -666,16 +666,12 @@
                 flex: 0 0 auto;
                 width: 260px;
                 height: 190px;
-                background: linear-gradient(150deg, #b98a55, #5c3c26);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: rgba(241, 231, 214, 0.6);
-                font-family: "Space Mono", monospace;
-                font-size: 0.7rem;
-                text-align: center;
-                padding: 10px;
+                background: #fff;
+                border-radius: 16px;
+                border: 1px solid rgba(36, 26, 20, 0.06);
+                box-shadow: 0 12px 30px rgba(36, 26, 20, 0.06);
                 overflow: hidden;
+                display: block;
             }
 
             /* AVIS */
@@ -884,10 +880,35 @@
                     width: 100%;
                 }
                 .dish-marquee {
-                    display: none;
+                    display: block;
                 }
+                /* Keep auto-scroll on mobile but allow touch to pause and manually swipe. */
                 .marquee-wrap {
-                    display: none;
+                    display: block;
+                    overflow: hidden;
+                    -webkit-mask-image: none;
+                    mask-image: none;
+                }
+                .marquee-track {
+                    display: flex;
+                    gap: 18px;
+                    width: max-content;
+                    animation: scroll-left 32s linear infinite;
+                }
+                .marquee-wrap:hover .marquee-track {
+                    animation-play-state: paused;
+                }
+                /* When user interacts on touch, add class `paused` to allow swipe */
+                .marquee-wrap.paused {
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                    scroll-snap-type: x mandatory;
+                }
+                .marquee-wrap.paused .marquee-track {
+                    animation-play-state: paused;
+                }
+                .marquee-track > * {
+                    scroll-snap-align: start;
                 }
                 .g-item {
                     width: 100%;
@@ -1382,6 +1403,37 @@
                         .classList.add("active");
                 });
             });
+
+            // Touch handling for marquee: pause animation on touch, allow swipe,
+            // then resume auto-scroll after a short idle period.
+            (function() {
+                const wraps = document.querySelectorAll('.marquee-wrap');
+                wraps.forEach((wrap) => {
+                    let resumeTimer = null;
+                    const startPause = () => {
+                        wrap.classList.add('paused');
+                        if (resumeTimer) {
+                            clearTimeout(resumeTimer);
+                            resumeTimer = null;
+                        }
+                    };
+                    const scheduleResume = () => {
+                        if (resumeTimer) clearTimeout(resumeTimer);
+                        resumeTimer = setTimeout(() => {
+                            wrap.classList.remove('paused');
+                            resumeTimer = null;
+                        }, 2000);
+                    };
+
+                    wrap.addEventListener('touchstart', startPause, {passive: true});
+                    wrap.addEventListener('touchmove', startPause, {passive: true});
+                    wrap.addEventListener('touchend', scheduleResume, {passive: true});
+
+                    // Optional: support pointer events (stylus/mouse)
+                    wrap.addEventListener('pointerdown', startPause);
+                    wrap.addEventListener('pointerup', scheduleResume);
+                });
+            })();
         </script>
     </body>
 </html>
