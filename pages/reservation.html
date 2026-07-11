@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Réservation — La Petite Pygmée</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="reservation">
+  <div id="site-header"></div>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="hero-eyebrow">Réservation</span>
+        <h1>Réservez votre table</h1>
+        <p>Indiquez vos préférences et nous vous confirmerons votre réservation dans les plus brefs délais.</p>
+      </div>
+    </section>
+
+    <section class="location">
+      <div class="wrap">
+        <div class="reservation-layout-wrap">
+          <form class="reservation-form">
+            <h2 style="font-family:'Fraunces',serif; font-size:1.6rem; color:var(--cream); margin-bottom:16px;">Vos informations</h2>
+            <input type="text" name="name" placeholder="Nom complet" required />
+            <input type="tel" name="phone" placeholder="Téléphone" required />
+            
+            <div style="margin-bottom: 8px; margin-top: 8px;">
+              <label style="font-family:'Space Mono',monospace; font-size:0.75rem; text-transform:uppercase; color:rgba(241, 231, 214, 0.6); display:block; margin-bottom:10px;">Choisir un établissement *</label>
+              <div class="agency-selector-grid">
+                <label class="agency-select-card" for="agency-bertoua-1">
+                  <input type="radio" name="establishment" id="agency-bertoua-1" value="Bertoua — Agence 1" required />
+                  <div class="agency-select-content">
+                    <img src="../1.jpg" alt="Bertoua Agence 1" />
+                    <h4>Agence 1</h4>
+                    <p>Nkoldbisson</p>
+                  </div>
+                </label>
+                
+                <label class="agency-select-card" for="agency-bertoua-2">
+                  <input type="radio" name="establishment" id="agency-bertoua-2" value="Bertoua — Agence 2" required />
+                  <div class="agency-select-content">
+                    <img src="../3.jpg" alt="Bertoua Agence 2" />
+                    <h4>Agence 2</h4>
+                    <p>Quartier Gare</p>
+                  </div>
+                </label>
+                
+                <label class="agency-select-card" for="agency-yaounde-3">
+                  <input type="radio" name="establishment" id="agency-yaounde-3" value="Yaoundé — Agence 3" required />
+                  <div class="agency-select-content">
+                    <img src="../8.jpg" alt="Yaoundé Agence 3" />
+                    <h4>Agence 3</h4>
+                    <p>Bastos</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <label style="font-family:'Space Mono',monospace; font-size:0.75rem; text-transform:uppercase; color:rgba(241, 231, 214, 0.6); display:block; margin-bottom:6px;">Date *</label>
+                <input type="date" name="date" required />
+              </div>
+              <div>
+                <label style="font-family:'Space Mono',monospace; font-size:0.75rem; text-transform:uppercase; color:rgba(241, 231, 214, 0.6); display:block; margin-bottom:6px;">Heure *</label>
+                <input type="time" name="time" required />
+              </div>
+            </div>
+            
+            <div style="margin-top: 12px;">
+              <label style="font-family:'Space Mono',monospace; font-size:0.75rem; text-transform:uppercase; color:rgba(241, 231, 214, 0.6); display:block; margin-bottom:6px;">Nombre de convives *</label>
+              <input type="number" name="guests" placeholder="Nombre de personnes" min="1" required />
+            </div>
+            
+            <textarea name="message" placeholder="Message ou demande particulière (optionnel)" style="margin-top: 12px;"></textarea>
+            <button class="btn btn-primary" type="submit" style="margin-top: 8px; border: none;">Confirmer la réservation</button>
+          </form>
+          
+          <div class="reservation-summary-panel">
+            <h3>Résumé de votre table</h3>
+            <div class="summary-item">
+              <span>Nom</span>
+              <span id="summary-name">—</span>
+            </div>
+            <div class="summary-item">
+              <span>Établissement</span>
+              <span id="summary-establishment">—</span>
+            </div>
+            <div class="summary-item">
+              <span>Date & Heure</span>
+              <span id="summary-datetime">—</span>
+            </div>
+            <div class="summary-item">
+              <span>Convives</span>
+              <span id="summary-guests">—</span>
+            </div>
+            <div class="summary-item" style="border-bottom: none; margin-top: 12px; font-style: italic; font-size: 0.82rem; color: rgba(241, 231, 214, 0.6);">
+              * Une confirmation vous sera envoyée dans les plus brefs délais.
+            </div>
+            
+            <p style="margin-top:24px;color:rgba(241,231,214,0.55);font-size:0.85rem; border-top: 1px solid rgba(241, 231, 214, 0.1); padding-top: 16px;">
+              Vous préférez WhatsApp ? <a href="https://wa.me/237670000001" style="color:var(--ochre); font-weight: 600;" target="_blank" rel="noreferrer noopener">Contactez-nous directement</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../js/layout.js"></script>
+  <script src="../js/main.js"></script>
+  <script type="module">
+    import { handleReservationForm } from '../js/reservation.js';
+    handleReservationForm(document.querySelector('.reservation-form'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nos établissements — La Petite Pygmée</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="restaurants">
+  <div id="site-header"></div>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="hero-eyebrow">Nos établissements</span>
+        <h1>Trois lieux, une même passion</h1>
+        <p>Retrouvez La Petite Pygmée à Bertoua et Yaoundé. Choisissez l'agence la plus proche de vous.</p>
+      </div>
+    </section>
+
+    <section class="search-bar">
+      <div class="wrap">
+        <div class="search-bar-inner">
+          <label for="establishment-search">Trouver un établissement</label>
+          <input id="establishment-search" class="search-input" type="search" placeholder="Ex : Bertoua, Yaoundé, Gare…" />
+          <button class="search-btn btn" type="button">Rechercher</button>
+        </div>
+        <div class="filter-buttons">
+          <button class="filter-btn btn active" data-filter="all" type="button">Tous</button>
+          <button class="filter-btn btn" data-filter="bertoua" type="button">Bertoua</button>
+          <button class="filter-btn btn" data-filter="yaounde" type="button">Yaoundé</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="presentation">
+      <div class="wrap">
+        <div class="establishments-grid">
+          <div class="card">
+            <img src="../1.jpg" alt="Bertoua — Agence 1">
+            <div class="card-body">
+              <span class="meta">Bertoua</span>
+              <h3>Bertoua — Agence 1</h3>
+              <div class="status-indicator" data-hours="10:00-23:00">Chargement...</div>
+              <p>Quartier Nkoldbisson — 10h00 – 23h00 · +237 6 70 00 00 01</p>
+              <div class="amenity-badges">
+                <span class="amenity-badge">Terrasse</span>
+                <span class="amenity-badge">Wifi</span>
+                <span class="amenity-badge">Climatisation</span>
+              </div>
+              <div class="btn-row" style="margin-top: 16px; gap: 8px;">
+                <a class="btn btn-primary" href="establishments/bertoua-agence-1.html" style="font-size: 0.85rem; padding: 10px 18px; border: none;">Voir plus</a>
+                <a class="btn btn-outline" href="reservation.html?agency=bertoua-1" style="border-color:var(--wood-dark);color:var(--wood-dark); font-size: 0.85rem; padding: 10px 18px;">Réserver</a>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../3.jpg" alt="Bertoua — Agence 2">
+            <div class="card-body">
+              <span class="meta">Bertoua</span>
+              <h3>Bertoua — Agence 2</h3>
+              <p>Quartier Gare — 10h00 – 23h00 · +237 6 70 00 00 02</p>
+              <div class="status-indicator" data-hours="10:00-23:00">Chargement...</div>
+              <div class="amenity-badges">
+                <span class="amenity-badge">Wifi</span>
+                <span class="amenity-badge">Climatisation</span>
+                <span class="amenity-badge">Parking</span>
+              </div>
+              <div class="btn-row" style="margin-top: 16px; gap: 8px;">
+                <a class="btn btn-primary" href="establishments/bertoua-agence-2.html" style="font-size: 0.85rem; padding: 10px 18px; border: none;">Voir plus</a>
+                <a class="btn btn-outline" href="reservation.html?agency=bertoua-2" style="border-color:var(--wood-dark);color:var(--wood-dark); font-size: 0.85rem; padding: 10px 18px;">Réserver</a>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../8.jpg" alt="Yaoundé — Agence 3">
+            <div class="card-body">
+              <span class="meta">Yaoundé</span>
+              <h3>Yaoundé — Agence 3</h3>
+              <div class="status-indicator" data-hours="10:00-23:00">Chargement...</div>
+              <p>Quartier Bastos — 10h00 – 23h00 · +237 6 70 00 00 03</p>
+              <div class="amenity-badges">
+                <span class="amenity-badge">Terrasse</span>
+                <span class="amenity-badge">Live Music</span>
+                <span class="amenity-badge">Lounge</span>
+              </div>
+              <div class="btn-row" style="margin-top: 16px; gap: 8px;">
+                <a class="btn btn-primary" href="establishments/yaounde-agence-3.html" style="font-size: 0.85rem; padding: 10px 18px; border: none;">Voir plus</a>
+                <a class="btn btn-outline" href="reservation.html?agency=yaounde-3" style="border-color:var(--wood-dark);color:var(--wood-dark); font-size: 0.85rem; padding: 10px 18px;">Réserver</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../js/layout.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
